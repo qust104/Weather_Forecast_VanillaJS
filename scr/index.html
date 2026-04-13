@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+</head>
+<body>
+
+<!--
+    🔹 Главный блок приложения
+    Вся страница = один независимый блок (правильный БЭМ)
+-->
+<div class="weather">
+
+    <!-- ================= HEADER ================= -->
+    <!--
+        🔹 Верхняя часть:
+        - город
+        - дата
+        - поиск
+    -->
+    <header class="weather__header">
+
+        <!-- Локация -->
+        <div class="weather__location">
+            <h1 class="weather__city">Kharkov</h1>
+            <span class="weather__date">Tuesday 7:28 AM</span>
+        </div>
+
+        <!-- Поиск -->
+        <form class="weather__search">
+            <input
+                    type="text"
+                    class="weather__search-input"
+                    placeholder="Search city..."
+            >
+            <button class="weather__search-button">
+                Search
+            </button>
+        </form>
+
+    </header>
+
+
+    <!-- ================= CURRENT WEATHER ================= -->
+    <!--
+        🔹 Основной блок с погодой:
+        - температура
+        - состояние
+        - иконка
+    -->
+    <section class="weather__current">
+
+        <!-- Левая часть (текст) -->
+        <div class="weather__current-main">
+            <div class="weather__temperature">26°</div>
+            <div class="weather__condition">Rainy morning</div>
+        </div>
+
+        <!-- Правая часть (иконка) -->
+        <div class="weather__current-icon">
+            <img src="" alt="Rain">
+        </div>
+
+    </section>
+
+
+    <!-- ================= DETAILS ================= -->
+    <!--
+        🔹 Дополнительные параметры:
+        одинаковые элементы → отдельная структура
+    -->
+    <section class="weather__details">
+
+        <div class="weather__detail">
+            <span class="weather__detail-label">Humidity</span>
+            <span class="weather__detail-value">69%</span>
+        </div>
+
+        <div class="weather__detail">
+            <span class="weather__detail-label">Wind</span>
+            <span class="weather__detail-value">1.5 km/h</span>
+        </div>
+
+        <div class="weather__detail">
+            <span class="weather__detail-label">Feels like</span>
+            <span class="weather__detail-value">26°C</span>
+        </div>
+
+    </section>
+
+
+    <!-- ================= FORECAST ================= -->
+    <!--
+        🔹 Прогноз по дням
+        Здесь уже используется ОТДЕЛЬНЫЙ БЛОК (не элемент!)
+    -->
+    <section class="weather__forecast">
+
+        <h2 class="weather__forecast-title">Days</h2>
+
+        <div class="weather__forecast-list">
+
+            <!-- Карточка дня -->
+            <div class="weather-card">
+                <span class="weather-card__day">Mon</span>
+                <img
+                        class="weather-card__icon"
+                        src="./icons/Weather-main-icon.svg"
+                        alt=""
+                >
+                <span class="weather-card__temp">13°</span>
+            </div>
+
+            <div class="weather-card weather-card--active">
+                <span class="weather-card__day">Tue</span>
+                <img
+                        class="weather-card__icon"
+                        src="./assets/icons/rain-sun.svg"
+                        alt=""
+                >
+                <span class="weather-card__temp">26°</span>
+            </div>
+
+            <div class="weather-card">
+                <span class="weather-card__day">Wed</span>
+                <img
+                        class="weather-card__icon"
+                        src="./assets/icons/rain.svg"
+                        alt=""
+                >
+                <span class="weather-card__temp">17°</span>
+            </div>
+
+            <div class="weather-card">
+                <span class="weather-card__day">Thu</span>
+                <img
+                        class="weather-card__icon"
+                        src="./assets/icons/cloud.svg"
+                        alt=""
+                >
+                <span class="weather-card__temp">21°</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER (опционально) ================= -->
+    <!--
+        🔹 Нижняя навигация (как на макете)
+        Можно вынести в отдельный блок nav
+    -->
+    <nav class="weather__nav">
+
+        <button class="weather__nav-item weather__nav-item--active">
+            Home
+        </button>
+
+        <button class="weather__nav-item">
+            Map
+        </button>
+
+        <button class="weather__nav-item">
+            Notifications
+        </button>
+
+    </nav>
+
+</div>
+
+</body>
+</html>
