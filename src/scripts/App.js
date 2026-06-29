@@ -14,6 +14,7 @@ class App {
     suggestions: '[data-js-suggestions]',
     favBtn: '[data-js-fav-btn]',
     quickCities: '[data-js-quick-cities]',
+    unitsBtn: '[data-js-units-btn]',
   };
 
   constructor(api, utils, render, demo) {
@@ -29,6 +30,7 @@ class App {
     this.suggestionsElement = document.querySelector(this.selectors.suggestions);
     this.favBtnElement = document.querySelector(this.selectors.favBtn);
     this.quickCitiesElement = document.querySelector(this.selectors.quickCities);
+    this.unitsBtnElement = document.querySelector(this.selectors.unitsBtn);
 
     this._lastQuery = '';
     this._suggestionIndex = -1;
@@ -40,6 +42,11 @@ class App {
 
   init() {
     const saved = localStorage.getItem('weatherglass_city');
+    const savedUnits = localStorage.getItem('weatherglass_units');
+    if (savedUnits && (savedUnits === 'metric' || savedUnits === 'imperial')) {
+      CONFIG.units = savedUnits;
+    }
+    this.updateUnitsBtn();
     const city = saved || CONFIG.DEFAULT_CITY;
     this.cityInputElement.value = city;
     this.search(city);
@@ -248,6 +255,18 @@ class App {
     }
   };
 
+  updateUnitsBtn() {
+    this.unitsBtnElement.textContent = CONFIG.units === 'metric' ? '°C' : '°F';
+  }
+
+  onUnitsBtnClick = () => {
+    CONFIG.units = CONFIG.units === 'metric' ? 'imperial' : 'metric';
+    localStorage.setItem('weatherglass_units', CONFIG.units);
+    this.updateUnitsBtn();
+    const city = this.cityInputElement.value.trim();
+    if (city) this.search(city);
+  };
+
   bindEvents() {
     this.searchBtnElement.addEventListener('click', this.onSearchBtnClick);
     this.cityInputElement.addEventListener('input', this.onCityInput);
@@ -256,6 +275,7 @@ class App {
     this.hourlyScrollElement.addEventListener('keydown', this.onHourlyScrollKeydown);
     this.geoBtnElement.addEventListener('click', this.onGeoBtnClick);
     this.favBtnElement.addEventListener('click', this.onFavClick);
+    this.unitsBtnElement.addEventListener('click', this.onUnitsBtnClick);
   }
 
   async search(city) {

@@ -1,3 +1,5 @@
+import { CONFIG } from './Api.js';
+
 class Render {
   stateClasses = {
     isHidden: 'is-hidden',
@@ -49,15 +51,24 @@ class Render {
     this.datetimeDisplayElement.textContent = this.utils.formatDatetime(dt);
     this.descDisplayElement.textContent = w.description;
     this.iconDisplayElement.innerHTML = this.icons.getIcon(w.id);
-    this.tempDisplayElement.innerHTML = `${Math.round(main.temp)}<sup>°C</sup>`;
+    const isMetric = CONFIG.units === 'metric';
+    const tempUnit = isMetric ? '°C' : '°F';
+    this.tempDisplayElement.innerHTML = `${Math.round(main.temp)}<sup>${tempUnit}</sup>`;
     this.humidityValElement.textContent = `${main.humidity}%`;
-    this.windValElement.textContent = `${Math.round(wind.speed)} м/с`;
-    this.pressureValElement.textContent = `${Math.round(main.pressure * 0.750064)} мм`;
-    this.visibilityValElement.textContent = `${(visibility / 1000).toFixed(1)} км`;
+    this.windValElement.textContent = isMetric
+      ? `${Math.round(wind.speed)} м/с`
+      : `${Math.round(wind.speed)} миль/ч`;
+    this.pressureValElement.textContent = isMetric
+      ? `${Math.round(main.pressure * 0.750064)} мм`
+      : `${Math.round(main.pressure * 0.02953)} in`;
+    this.visibilityValElement.textContent = isMetric
+      ? `${(visibility / 1000).toFixed(1)} км`
+      : `${(visibility / 1609.344).toFixed(1)} миль`;
 
+    const feelsUnit = isMetric ? '°C' : '°F';
     this.miniBarsElement.innerHTML = `
-      <span>Ощущается <strong>${Math.round(main.feels_like)}°</strong></span>
-      <span>Макс ${Math.round(main.temp_max)}° / мин ${Math.round(main.temp_min)}°</span>
+      <span>Ощущается <strong>${Math.round(main.feels_like)}${feelsUnit}</strong></span>
+      <span>Макс ${Math.round(main.temp_max)}${tempUnit} / мин ${Math.round(main.temp_min)}${tempUnit}</span>
     `;
 
     this.currentPlaceholderElement.classList.add(this.stateClasses.isHidden);

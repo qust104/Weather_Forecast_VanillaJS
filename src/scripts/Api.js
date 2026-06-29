@@ -2,6 +2,7 @@ export const CONFIG = {
   API_KEY: '8247544b8b51f10a078ce330afbb4dc4',
   BASE: 'https://api.openweathermap.org/data/2.5',
   DEFAULT_CITY: 'Москва',
+  units: 'metric',
 };
 
 export default class Api {
@@ -20,22 +21,22 @@ export default class Api {
   }
 
   async fetchWeather(city) {
-    const url = `${CONFIG.BASE}/weather?q=${encodeURIComponent(city)}&appid=${CONFIG.API_KEY}&units=metric&lang=ru`;
+    const url = `${CONFIG.BASE}/weather?q=${encodeURIComponent(city)}&appid=${CONFIG.API_KEY}&units=${CONFIG.units}&lang=ru`;
     return this._request(url);
   }
 
   async fetchForecast(city) {
-    const url = `${CONFIG.BASE}/forecast?q=${encodeURIComponent(city)}&appid=${CONFIG.API_KEY}&units=metric&lang=ru&cnt=48`;
+    const url = `${CONFIG.BASE}/forecast?q=${encodeURIComponent(city)}&appid=${CONFIG.API_KEY}&units=${CONFIG.units}&lang=ru&cnt=48`;
     return this._request(url);
   }
 
   async fetchWeatherByCoords(lat, lon) {
-    const url = `${CONFIG.BASE}/weather?lat=${lat}&lon=${lon}&appid=${CONFIG.API_KEY}&units=metric&lang=ru`;
+    const url = `${CONFIG.BASE}/weather?lat=${lat}&lon=${lon}&appid=${CONFIG.API_KEY}&units=${CONFIG.units}&lang=ru`;
     return this._request(url);
   }
 
   async fetchForecastByCoords(lat, lon) {
-    const url = `${CONFIG.BASE}/forecast?lat=${lat}&lon=${lon}&appid=${CONFIG.API_KEY}&units=metric&lang=ru&cnt=48`;
+    const url = `${CONFIG.BASE}/forecast?lat=${lat}&lon=${lon}&appid=${CONFIG.API_KEY}&units=${CONFIG.units}&lang=ru&cnt=48`;
     return this._request(url);
   }
 
