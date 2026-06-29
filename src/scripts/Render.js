@@ -68,7 +68,8 @@ class Render {
     const feelsUnit = isMetric ? '°C' : '°F';
     this.miniBarsElement.innerHTML = `
       <span>Ощущается <strong>${Math.round(main.feels_like)}${feelsUnit}</strong></span>
-      <span>Макс ${Math.round(main.temp_max)}${tempUnit} / мин ${Math.round(main.temp_min)}${tempUnit}</span>
+      <span>Макс ${Math.round(main.temp_max)}${tempUnit}</span>
+      <span>Мин ${Math.round(main.temp_min)}${tempUnit}</span>
     `;
 
     this.currentPlaceholderElement.classList.add(this.stateClasses.isHidden);

@@ -1,4 +1,4 @@
-[data-js-error-toast] {
+.toast {
     position: fixed;
     top: 24px;
     left: 50%;
@@ -20,24 +20,24 @@
     backdrop-filter: blur(12px);
 }
 
-[data-js-error-toast].visible {
+.toast.visible {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
 
-[data-js-error-toast] svg {
+.toast svg {
     stroke: var(--danger);
     width: 18px;
     height: 18px;
 }
 
-[data-js-error-toast].toast-warning {
+.toast.toast-warning {
     background: rgba(255, 193, 7, 0.12);
     border-color: rgba(255, 193, 7, 0.35);
     color: #ffc107;
 }
 
-[data-js-error-toast].toast-warning svg {
+.toast.toast-warning svg {
     stroke: #ffc107;
 }

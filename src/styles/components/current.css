@@ -1,21 +1,22 @@
 /* Карточка текущей погоды */
 
-#current-card {
-    padding: 26px 30px;
+.card-current {
+    padding: 0;
     display: flex;
     align-items: center;
     min-height: 168px;
 }
 
-[data-js-current-data] {
+.current-data {
     display: flex;
     width: 100%;
     align-items: center;
     gap: 24px;
+    padding: 26px 30px;
 }
 
-[data-js-current-data].is-hidden,
-[data-js-current-placeholder].is-hidden {
+.current-data.is-hidden,
+.current-placeholder.is-hidden {
     display: none;
 }
 
@@ -173,7 +174,7 @@
     font-weight: 600;
 }
 
-.placeholder {
+.current-placeholder {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -182,7 +183,7 @@
     gap: 10px;
     color: var(--text-muted);
     font-size: 14px;
-    padding: 30px 0;
+    padding: 30px;
 }
 
 .ph-icon {

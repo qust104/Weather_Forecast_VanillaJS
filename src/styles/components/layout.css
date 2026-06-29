@@ -1,6 +1,7 @@
 /* Контейнер приложения */
 
-#app {
+.app {
+    box-sizing: border-box;
     width: 100%;
     max-width: 1400px;
     min-width: 960px;

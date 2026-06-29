@@ -71,6 +71,7 @@ class App {
       btn.type = 'button';
       btn.dataset.city = city;
       btn.setAttribute('data-js-quick-city', '');
+      btn.classList.add('quick-city');
 
       btn.textContent = city;
       btn.addEventListener('click', () => this.search(city));

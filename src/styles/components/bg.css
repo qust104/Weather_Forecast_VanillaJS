@@ -1,4 +1,4 @@
-[data-js-bg] {
+    .bg {
     position: fixed;
     inset: -10%;
     z-index: -1;
@@ -21,7 +21,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    [data-js-bg] {
+.bg {
         animation: none;
     }
 }
