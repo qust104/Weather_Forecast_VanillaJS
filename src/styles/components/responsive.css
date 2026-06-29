@@ -11,7 +11,7 @@
     }
 }
 
-/* Планшет: 768–959px */
+/* Планшет: 896–959px */
 
 @media (max-width: 959px) {
     .app {
@@ -62,9 +62,9 @@
     }
 }
 
-/* Телефон: < 768px */
+/* Телефон / компактный планшет: < 896px */
 
-@media (max-width: 767px) {
+@media (max-width: 895px) {
     .app {
         min-width: 0;
         padding: 16px 12px 32px;
@@ -107,8 +107,26 @@
 
     .current-data {
         flex-wrap: wrap;
-        gap: 12px;
-        padding: 20px;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .current-left {
+        flex: 1 1 100%;
+    }
+
+    .current-center {
+        flex-shrink: 0;
+    }
+
+    .current-right {
+        flex: 1;
+        min-width: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding-left: 0;
+        border-left: none;
     }
 
     .current-placeholder {
@@ -131,11 +149,6 @@
     .weather-icon-main {
         width: 48px;
         height: 48px;
-    }
-
-    .current-right {
-        gap: 14px;
-        padding-left: 14px;
     }
 
     .week-items {
