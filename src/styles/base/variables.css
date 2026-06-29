@@ -1,0 +1,25 @@
+:root {
+    /* Цвета */
+    --bg-deep: #141a2e;
+    --bg-deep-2: #1c2440;
+    --bg-deep-3: #232c4d;
+    --accent: #00d4aa;
+    --accent-soft: rgba(0, 212, 170, 0.16);
+    --glass-bg: rgba(255, 255, 255, 0.045);
+    --glass-bg-hover: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.09);
+    --text-primary: #f3f6fb;
+    --text-secondary: rgba(243, 246, 251, 0.62);
+    --text-muted: rgba(243, 246, 251, 0.36);
+    --danger: #ff6b6b;
+
+    /* Радиусы и тени */
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+    /* Типографика */
+    --font-main: 'Manrope', sans-serif;
+    --font-display: 'DM Serif Display', serif;
+}

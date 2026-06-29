@@ -1,0 +1,4 @@
+<!-- Cloudy -->
+<svg class="weather-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M48 36a10 10 0 0 0-17.5-7.2A14 14 0 0 0 18 32a10 10 0 0 0 0 20h30a10 10 0 0 0 0-16z" fill="#C4C4C4"/>
+</svg>

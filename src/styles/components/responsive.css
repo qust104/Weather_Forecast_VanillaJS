@@ -1,0 +1,34 @@
+/* Десктоп-адаптив + доступность */
+
+@media (max-width: 1180px) {
+    .current-right {
+        gap: 16px;
+        padding-left: 16px;
+    }
+
+    .temp-main {
+        font-size: 46px;
+    }
+}
+
+/* Ниже 960px — это уже не десктоп-раскладка;
+   здесь предполагается отдельный mobile-layout (не входит в это задание). */
+
+/* Доступность */
+
+[data-js-city-input]:focus-visible,
+[data-js-search-btn]:focus-visible,
+[data-js-geo-btn]:focus-visible,
+[data-js-quick-city]:focus-visible,
+.hour-item:focus-visible,
+.week-item:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}

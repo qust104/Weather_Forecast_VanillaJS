@@ -1,0 +1,27 @@
+[data-js-bg] {
+    position: fixed;
+    inset: -10%;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(78, 168, 255, 0.22), transparent 42%),
+        radial-gradient(circle at 85% 75%, rgba(120, 90, 255, 0.18), transparent 48%),
+        radial-gradient(circle at 50% 100%, rgba(60, 200, 170, 0.10), transparent 55%),
+        linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-deep-2) 55%, var(--bg-deep-3) 100%);
+    background-size: 140% 140%;
+    animation: sky-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes sky-drift {
+    0% {
+        background-position: 0% 0%, 100% 100%, 50% 100%, 0% 0%;
+    }
+    100% {
+        background-position: 10% 8%, 90% 92%, 55% 92%, 0% 0%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-js-bg] {
+        animation: none;
+    }
+}

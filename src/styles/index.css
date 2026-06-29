@@ -1,0 +1,14 @@
+/* WeatherGlass — единая точка входа для стилей */
+
+@import 'base/normalize.css';
+@import 'base/variables.css';
+@import 'base/globals.css';
+@import 'components/bg.css';
+@import 'components/loader.css';
+@import 'components/toast.css';
+@import 'components/layout.css';
+@import 'components/search.css';
+@import 'components/current.css';
+@import 'components/hourly.css';
+@import 'components/weekly.css';
+@import 'components/responsive.css';
